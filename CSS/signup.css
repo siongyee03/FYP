@@ -1,0 +1,27 @@
+.fa-eye{
+    position: absolute;
+    top: 58px;
+    left: 178%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color:lightgray;
+    }
+
+    form .col-lg-12
+    {
+      padding-top:30px;
+      padding-bottom:18%;
+    }
+
+    form .alert
+    { right:35px;
+      height:45px;
+      width: 588px;
+      text-align: center;
+      font-size:15px;
+      font-weight: 500;
+    }
+    form .message
+    {
+      padding:20px;
+    }
