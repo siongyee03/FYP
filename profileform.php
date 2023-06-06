@@ -1,7 +1,7 @@
 <?php
 include "connect.php";
 include "header.php";
-include "connect.php";
+
 ?>
 
 <!DOCTYPE html>
