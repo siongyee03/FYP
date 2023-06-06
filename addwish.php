@@ -2,7 +2,7 @@
 ob_start();
 session_start();
 include 'connect.php';
-    if(!isset($_SESSION['user_id']))
+    if(!isset($_SESSION['user_id']) || $_SESSION['verify'] == 0)
     {
         header("Location: wishlist.php");
     }else{
