@@ -23,7 +23,7 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
   $user = mysqli_fetch_assoc($result);
 
   if($user){
-    if(password_verify($_POST['password'], $user['password_hash']))
+    if(password_verify($_POST['password'], $user['password_hash']) && $user['verify_status']!=0)
     {
       session_start();
 
@@ -39,6 +39,21 @@ if($_SERVER["REQUEST_METHOD"] === "POST"){
       }
       header("Location: index.php");
       exit(0);
+    }
+    elseif($user['verify_status']==0)
+    {
+        session_start();
+
+        session_regenerate_id();
+  
+        $_SESSION['user_id'] = $user['id'];
+        ?>
+              <script type = "text/javascript">
+              alert("Please verify your email to login");
+              </script>
+        <?php 
+        header("refresh:0.1; url=signup_sendemailverify.php");
+        exit(0);
     }
   }
     $is_invalid = true;

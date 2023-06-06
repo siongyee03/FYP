@@ -44,7 +44,7 @@ include "header.php";
           <div class="row">
             <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
                 <div class="mb-4">
-                    <form id="sendcodefrm" name="sendcodefrm" method="POST" action="signup_sendotp_code.php" accept-charset="UTF-8" novalidate="novalidate">
+                    <form id="changemailfrm" name="changemailfrm" method="POST" action="signup_changeemail_code.php" accept-charset="UTF-8" novalidate="novalidate">
                           <div class="col-12 col-sm-12 col-md-12">
                               <div class="message">
                                   <?php 
@@ -73,15 +73,15 @@ include "header.php";
                           <div class="row">
                             <div class="col-12 col-sm-12 col-md-12">
                                 <div class="form-group">
-                                    <label for="sendcode">Email Address</label>
-                                    <input type="email" name="sendcode" placeholder="Enter the email that is registered" id="sendcode" class="sendcode" 
-                                    autocorrect="off" autocapitalize="off" autofocus="" value="<?php if(isset($_SESSION['email'])){echo $_SESSION['email'];}?>">
+                                    <label for="cemail">Email Address</label>
+                                    <input type="email" name="cemail" placeholder="emailaddress@company.com" id="cemail" class="cemail" 
+                                    autocorrect="off" autocapitalize="off" autofocus="" value="<?php if(isset($_SESSION['newemail'])){echo $_SESSION['newemail'];}?>">
                                 </div>
                             </div>
                           </div>
                       
                             <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
-                                <input type="submit" class="btn mb-3" name="sendbtn" id="sendcodefrm" value="send OTP">
+                                <input type="submit" class="btn mb-3" name="sendbtn" id="changemailfrm" value="send OTP">
                             </div>
                           
                         </form>
@@ -109,7 +109,7 @@ include "header.php";
      <script src="assets/js/main.js"></script>
 
      <script src="https://unpkg.com/just-validate@latest/dist/just-validate.production.min.js"></script>
-     <script src="assets/js/emailverify.js" defer></script>
+     <script src="assets/js/changeemail.js" defer></script>
 
 </div>
 </body>

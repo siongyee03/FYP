@@ -52,7 +52,7 @@ include "connect.php";
         </div>
 
         <?php 
-        if(isset($_SESSION['user_id']))
+        if(isset($_SESSION['user_id']) && $_SESSION['verify'] == 1)
         {
             $sql = "select * from users where id = '".$_SESSION['user_id']."'";
             

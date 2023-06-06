@@ -74,12 +74,23 @@ include "header.php";
                             <div class="row">
                                 <div class="col-12 col-sm-12 col-md-12">
                                     <div class="form-group">
-                                        <label for="emailotp">Enter OTP</label>
+                                        <label for="emailotp">Enter code</label>
                                         <input type="text" name="emailotp" placeholder="" id="emailotp" class="emailotp" 
-                                        autocorrect="off" autocapitalize="off" autofocus="">
+                                        autocorrect="off" autocapitalize="off" autofocus="" autocomplete="off">
+                                        <small>If you don't see it, you may need to check your spam folder.</small>
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="row">
+                                    <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12" style="padding-top:30px;">
+                                      <input type="submit" class="btn mb-3" name="sendbtn" id="checkotpfrm" value="Verify">
+                                        <p class="mb-4">
+                                        <a href="signup_resend_code.php" id="resendcode">Resend Code</a> &nbsp; | &nbsp;
+                                        <a href="signup_changeEmailverify.php" id="changemail">Change Email</a> 
+                                        </p>
+                                    </div>
+                                </div>
 
                             <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
                                 <input type="submit" class="btn mb-3" name="sendbtn" id="checkotpfrm" value="Verify">

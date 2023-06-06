@@ -43,7 +43,7 @@ include "header.php";
       <div class="container">
           <div class="row">
               <?php
-              if(!isset($_SESSION['user_id']))
+              if(!isset($_SESSION['user_id']) || $_SESSION['verify'] == 0)
               {
                 ?>
                 <div style=" display: flex; justify-content: center; align-items: center; margin: auto; width: 350px; height: 200px;  ">
@@ -103,15 +103,18 @@ include "header.php";
                                 <div class="col-lg-6">
                                   <div class="panel-content" style="font-size:15px;">
                                     <label class="form-control-label">Email address :</label> <?php echo $user['email']?>
+                                  </div>   
+                                </div>      
+                              </div>
+                          </div>
 
-                                    <?php if($user['verify_status'] == 0): ?>
-                                    <span style="padding-left:20px;">
-                                    <a href="useremailverify.php?email=<?php echo $user['email'];?>">
-                                      <button class="btn btn-secondary btn--small" title="This email is not verified. &#013;Verify now.">verify</button>
-                                    </a>
-                                  </span>   
-                                    <?php endif; ?>
-                                    
+                          <div class="faq-body">
+                              <div class="row">
+                                <div class="col-lg-6">
+                                  <div class="panel-content" style="font-size:15px;">
+                                    <label class="form-control-label">Phone Number :</label> 
+                                    <?php if(!empty($user['phone'])) echo "+60 ".$user['phone'];
+                                    else echo "-";?>
                                   </div>   
                                 </div>      
                               </div>
@@ -119,20 +122,20 @@ include "header.php";
   
                           <hr class="my-4">
                           <!-- Address -->
-                          <h2 class="title h2">Address <a href="profileadd.php" class="edit-i remove" style="float:right;" title="edit address"><i class="anm anm-edit" style="font-size:18px;" aria-hidden="true"></i></a></h2> 
+                          <h2 class="title h2">Address <a href="profileadd.php" class="edit-i remove" style="float:right;" title="edit address &nbsp;/&nbsp; add address"><i class="anm anm-edit" style="font-size:18px;" aria-hidden="true"></i></a></h2> 
                           <hr class="my-4">
                           <div class="faq-body">
                                 <div class="row">
                                       <div class="col-lg-12">
                                             <div class="panel-content" style="font-size:15px;">
                                                 <?php  
-                                                $display = mysqli_query($conn, "select ship_address, city, states, postal, country from users where id = '$uid'");
-                                               
-                                                if(mysqli_fetch_assoc($display)==1)
+                                                $display = mysqli_query($conn, "select ship_address, city, states, postal, country from users where id = '$uid' limit 1");
+                                                $row = mysqli_fetch_assoc($display);
+                                                if(!empty($row))
                                                 {
                                 
-                                                  echo $display['ship_address'].", "; echo $display['postal']." "; echo $display['city'].", "; 
-                                                  echo $display['states'].", ";echo $display['country'];
+                                                  echo $row['ship_address'].", "; echo $row['postal']." "; echo $row['city'].", "; 
+                                                  echo $row['states'].", ";echo $row['country'];
                                                 }
                                                 else
                                                 {
@@ -151,7 +154,7 @@ include "header.php";
                               <hr class="my-4">
                               <div class="faq-body">
                                 <div class="row">
-                                  <div class="col-lg-6" style="margin-left:30px;">
+                                  <div class="col-lg-6" style="margin-left:30px; padding-top:30px;">
                                     <a href="logout.php" onclick="return confirm('Are you sure you want to log out?')">
                                       <button type="button" class="btn btn--secondary get-rates" >Log Out</button></a>                                
                                   </div>

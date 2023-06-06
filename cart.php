@@ -1,5 +1,5 @@
 <?php 
-include"header.php";
+include "header.php";
 include "connect.php";
 
 ?>
@@ -60,6 +60,16 @@ include "connect.php";
                     </div>
             </div>
             <?php
+            }
+            elseif($_SESSION['verify'] == 0){
+                ?>
+                <div style=" display: flex; justify-content: center; align-items: center; margin: auto; width: 350px; height: 200px;  ">
+                    <div class="text-center" style="font-size: 15px; word-spacing: 2px; line-height: 1.5;" >
+                    <p >Verify email to add items</p>
+                    <a href = "signup_sendemailverify.php"><button type="button" class="btn btn-small">Verify</button></a>
+                    </div>
+                </div>
+                <?php
             }
             else{
             ?>
@@ -151,13 +161,7 @@ include "connect.php";
                
                     <div class="col-12 col-sm-12 col-md-4 col-lg-4 cart__footer">
                     <!--form-->
-                    <form method="POST" action="cartToCheckOut.php">
-                        <div class="cart-note">
-                            <div class="solid-border">
-                                <h5><label for="CartSpecialInstructions" class="cart-note__label small--text-center">Add a note to your order</label></h5>
-                                <textarea name="note" id="CartSpecialInstructions" class="cart-note__input" maxlength="3500"></textarea>
-                            </div>
-                        </div>
+                    <form method="POST" action="checkout.php">
                         <div class="solid-border">
                         <div class="row">
                             <span class="col-12 col-sm-6 cart__subtotal-title"><strong>Subtotal</strong></span>

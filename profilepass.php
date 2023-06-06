@@ -1,5 +1,5 @@
 <?php
-include "connection.php";
+include "connect.php";
 include "header.php";
 
 $error_oldpass = "";
@@ -81,7 +81,7 @@ if(isset($_POST['savebtn'])){
 <!-- Main Style CSS -->
 <link rel="stylesheet" href="assets/css/style.css">
 <link rel="stylesheet" href="assets/css/responsive.css">
-<link rel="stylesheet" href="assets/css/editprofile.css">
+
 <!-- eye icon CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
  <!-- register validation -->
@@ -117,7 +117,7 @@ color:lightgray;
     	<!--Page Title-->
     	<div class="page section-header text-center">
           <div class="page-title">
-              <div class="wrapper"><h1 class="page-width">My Profile</h1></div>
+              <div class="wrapper"><h1 class="page-width" style="padding-top: 60px">My Profile</h1></div>
           </div>
 		  </div>
       <div class="container">
@@ -133,9 +133,9 @@ color:lightgray;
                         </div>
                 <?php
               }else{?>          
-                <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
-                    <div id="accordionExample">
-                        <form id="addfrm" name="addfrm" method="POST" action=" " accept-charset="UTF-8" enctype="multipart/form-data" novalidate="novalidate">
+                  <div class="col-12 col-sm-12 col-md-6 col-lg-6 main-col offset-md-3">
+                      <div class="mb-4">
+                        <form id="addfrm" name="addfrm" method="POST" action=" " class="contact-form" accept-charset="UTF-8" enctype="multipart/form-data" novalidate="novalidate">
                         <?php
                             $uid = $_SESSION['user_id'];
 
@@ -150,43 +150,38 @@ color:lightgray;
                                   
                             <!-- Password -->
                               <h2>Change New password</h2>   
-                              <div class="pl-lg-4">
                                 <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="form-group focused">
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
                                       <label class="form-control-label" for="input-oldpass">Old password</label>
-                                      <input type="password" id="input-oldpass" name="oldpass" class="form-control form-control-alternative">
+                                      <input type="password" id="input-oldpass" name="oldpass" class="">
                                       <i class="fa-solid fa-eye" id="show-old"></i> <!--for the eye icon-->   
                                       <span style="color:red;"><?php echo $error_oldpass; ?></span>
                                     </div>
                                   </div>
-                                </div>
-
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="form-group focused">
+                              
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
                                       <label class="form-control-label" for="input-newpass">New password</label>
-                                      <input type="password" id="input-newpass" name="newpass" class="form-control form-control-alternative"> 
+                                      <input type="password" id="input-newpass" name="newpass" class=""> 
                                       <i class="fa-solid fa-eye" id="show-new"></i> <!--for the eye icon-->   
                                       <span style="color:red;"><?php echo $error_newpass; ?></span>
                                     </div>
                                   </div>
-                                </div>
-
-                                <div class="row">
-                                  <div class="col-md-6">
-                                    <div class="form-group focused">
+                                  <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                    <div class="form-group">
                                       <label class="form-control-label" for="input-confirmpass">Confirm password</label>
-                                      <input type="password" id="input-confirmpass" name="confirmpass" class="form-control form-control-alternative">
+                                      <input type="password" id="input-confirmpass" name="confirmpass" class="">
                                       <i class="fa-solid fa-eye" id="show-confirm"></i> <!--for the eye icon-->   
                                       <span style="color:red;"><?php echo $error_confirmpass; ?></span>
                                     </div>
                                   </div>
-                                </div>
                               </div>
 
-                              <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
-                                <input type="submit" class="btn mb-3" name="savebtn" id="addfrm" value="update">
+                              <div class="row">
+                                <div class="text-center col-12 col-sm-12 col-md-12 col-lg-12">
+                                  <input type="submit" class="btn mb-3" name="savebtn" id="addfrm" value="update">
+                                </div>
                               </div>
                             <?php
                               }

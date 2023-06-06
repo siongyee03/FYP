@@ -23,6 +23,7 @@ include "connect.php";
               alert("Your Email Has Been Verified. Welcome.");
             </script>
             <?php
+            
             header("refresh:0.1; url=index.php");
             exit;
         }

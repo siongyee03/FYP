@@ -1,6 +1,7 @@
 <?php
 include "connect.php";
 include "header.php";
+include "connect.php";
 ?>
 
 <!DOCTYPE html>
@@ -67,16 +68,25 @@ include "header.php";
                             <div class="row">
                               <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                 <div class="form-group">
-                                  <label class="form-control-label" for="input-username">Username</label>
+                                  <label class="form-control-label" for="uname">Username</label>
                                   <input type="text" id="uname" name="uname" autofocus="" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Username" value="<?= $user['username'];?>">
                                 </div>
                               </div>
                           
                                <div class="col-12 col-sm-12 col-md-12 col-lg-12">
                                   <div class="form-group">
-                                    <label class="form-control-label" for="input-email">Email address</label>
+                                    <label class="form-control-label" for="uemail">Email address</label>
                                     <input type="email" id="uemail" name="uemail" autofocus="" 
                                     autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="jesse@example.com" value="<?= $user['email'];?>">
+                                </div>
+                              </div>
+
+                              <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+                                  <div class="form-group">
+                                    <label class="form-control-label" for="phone">Phone Number</label>
+                                    <input type="text" id="phone" name="phone" autofocus="" 
+                                    autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="60123456789" value="<?= $user['phone'];?>"
+                                    pattern="[0-9]{10}">
                                 </div>
                               </div>
                             </div>

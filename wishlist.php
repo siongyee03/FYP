@@ -1,6 +1,7 @@
 <?php 
-include"header.php";
+include "header.php";
 include "connect.php";
+
 ?>
 
 <!DOCTYPE html>
@@ -48,7 +49,7 @@ include "connect.php";
         	<div class="row">
                 <div class="col-12 col-sm-12 col-md-12 col-lg-12 main-col">
                     <?php
-                    if(!isset($_SESSION['user_id']) & empty($_SESSION['user_id']))
+                    if(!isset($_SESSION['user_id']) && empty($_SESSION['user_id']) || $_SESSION['verify'] == 0)
                         {
                     ?>
                         <div style=" display: flex; justify-content: center; align-items: center; margin: auto; width: 350px; height: 200px;  ">

@@ -53,7 +53,7 @@ $otp = $rand_num;
     }
 }
 
-    $email = mysqli_real_escape_string($conn,$_POST['sendcode']);
+    $email = mysqli_real_escape_string($conn,$_GET['cemail']);
     $rand_num = rand(11111, 99999);
     $_SESSION['otp'] = $rand_num;
     $check_email = "select email from users where email = '$email' limit 1";
@@ -63,7 +63,6 @@ $otp = $rand_num;
     {
         $row = mysqli_fetch_array($check_email_run);
         $get_email = $row['email'];
-        $_SESSION['email'] = $email;
 
         $updatecode = "update users set otpcode = '$rand_num' where email = '$get_email' limit 1";
         $updatecoderun = mysqli_query($conn, $updatecode);
