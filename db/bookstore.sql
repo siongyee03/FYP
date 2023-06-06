@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 02, 2023 at 03:30 PM
+-- Generation Time: Jun 06, 2023 at 11:45 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.2.0
 
@@ -24,6 +24,35 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `admin`
+--
+
+CREATE TABLE `admin` (
+  `admin_id` int(10) NOT NULL,
+  `admin_email` varchar(30) NOT NULL,
+  `admin_username` varchar(30) NOT NULL,
+  `admin_password` varchar(30) NOT NULL,
+  `admin_phone` int(11) NOT NULL,
+  `admin_position` varchar(30) NOT NULL,
+  `access_level` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `admin`
+--
+
+INSERT INTO `admin` (`admin_id`, `admin_email`, `admin_username`, `admin_password`, `admin_phone`, `admin_position`, `access_level`) VALUES
+(1, 'ganyeechang@gmail.com', 'yeechang2625', 'yeechang262500', 135868595, 'Web Developer', 'Super Admin'),
+(2, 'teddy@gmail.com', 'teddy1234', 'teddy123400', 128874669, 'Web Developer', 'admin'),
+(3, 'nicholas@gmail.com', 'nicholas1234', 'nicholas123400', 136697889, 'Web Developer', 'admin'),
+(6, 'ganyeechang@gmail.com', 'yeec', '12345678', 136697888, 'Web Developer', 'admin'),
+(10, 'ganyeechang03141111111@gmail.c', 'yeechang11101104', 'abc1234444', 2147483647, 'Web Developer IT', ''),
+(13, 'ganyeechang031112EEEE@gmail.co', 'yeechang2625', '', 123453678, 'Web Developer', ''),
+(14, 'ganyeechang031112@gmail.com', 'yeechang', 'qwer1234', 1234, 'Web Developer', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `books`
 --
 
@@ -37,7 +66,7 @@ CREATE TABLE `books` (
   `book_price` varchar(255) NOT NULL,
   `cat_id` varchar(255) NOT NULL,
   `book_publisher` varchar(255) NOT NULL,
-  `book_formal` varchar(255) NOT NULL,
+  `book_format` varchar(255) NOT NULL,
   `stock` int(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
@@ -45,17 +74,17 @@ CREATE TABLE `books` (
 -- Dumping data for table `books`
 --
 
-INSERT INTO `books` (`book_id`, `book_isbn`, `book_title`, `book_image`, `book_description`, `book_author`, `book_price`, `cat_id`, `book_publisher`, `book_formal`, `stock`) VALUES
-(1, '9789672852654', 'Get Ready SPM 2022 English Form 4', 'Get Ready!SPM 2022.png\r\n', 'EXCEL IN SPM. LATEST FORMAT SPM\r\n\r\nThe GET READY! SPM series is specially designed for the upper secondary students to achieve excellent result in SPM. This series is prepared based on the Content Standards and Learning Standards in the DSKP KSSM, textbook and the latest SPM exam format. It is systematically arranged to equip students with extra features to excel in the examination.\r\n\r\n- Formative and Summative Assessment\r\n\r\n- Fulfills Exam requirements \r\n\r\n- Answers complete and precise', 'Zeti Aqmar Alpikir & Ummi Nadzirah Zainol', '10.00', '1', 'Pelangi', 'Paper', 0),
-(2, '9789672851952', 'Get Ready SPM 2022 Bahasa Melayu Tingkatan 4', 'Get Ready SPM 2022 Tingkatan 4.jpg ', 'YAKIN MENGHADAPI SPM. FORMAT TERKINI SPM.\r\n\r\nSiri Get Ready! SPM amat sesuai digunakan oleh murid-murid tahap menengah atas ke arah pencapaian SPM yang cemerlang. Berpandukan Standard Kandungan dan Standard Pembelajaran dalam DSKP KSSM, buku teks, serta format Kertas SPM yang baharu, semua latihan ini disusun secara sistematik dan disertakan pelbagai ciri ekstra supaya muri-murid dapat merintis kecemerlangan dalam peperiksaan.\r\n\r\n- Latih Tubi Pentaksiran Formatif dan Sumatif\r\n\r\n- Memenuhi kehendak Peperiksaan\r\n\r\n- Jawapan tepat dan lengkap', 'Hasniza Mohd Salim & Alshaa Rani Ab Wahab', '10.00', '1', 'Pelangi', 'Paper', 23),
-(3, '9789672844521', 'Focus Visual SPM KSSM 2023 Sejarah', 'Focus Visual SPM Sejarah.jpg', 'Siri ini bertujuan untuk menghasilkan pembelajaran berimpak dalam kalangan murid. Penerangan fakta melaui pendekatan infografik dan diagramatik dapat memberikan kesan visual yang bukan sahaja merangsang minat tetapi juga ingatan pembaca.\r\n\r\nCiri-ciri istimewa buku ini:\r\n\r\n- Uji diri\r\n\r\n- Tip SPM\r\n\r\n- Cabaran KBAT\r\n\r\n- Peta i-Think\r\n\r\n- Model 3D', 'Pauline Wong Mee Kiong', '35.00', '1', 'Pelangi', 'Paper', 45),
+INSERT INTO `books` (`book_id`, `book_isbn`, `book_title`, `book_image`, `book_description`, `book_author`, `book_price`, `cat_id`, `book_publisher`, `book_format`, `stock`) VALUES
+(1, '9789672852654', 'Get Ready SPM 2022 English Form 4', 'Get Ready!SPM 2022.png\r\n', 'EXCEL IN SPM. LATEST FORMAT SPM\r\n\r\nThe GET READY! SPM series is specially designed for the upper secondary students to achieve excellent result in SPM. This series is prepared based on the Content Standards and Learning Standards in the DSKP KSSM, textbook and the latest SPM exam format. It is systematically arranged to equip students with extra features to excel in the examination.\r\n\r\n- Formative and Summative Assessment\r\n\r\n- Fulfills Exam requirements \r\n\r\n- Answers complete and precise', 'Zeti Aqmar Alpikir & Ummi Nadzirah Zainol', '10.00', '1', 'Pelangi', 'Paper', -5),
+(2, '9789672851952', 'Get Ready SPM 2022 Bahasa Melayu Tingkatan 4', 'Get Ready SPM 2022 Tingkatan 4.jpg ', 'YAKIN MENGHADAPI SPM. FORMAT TERKINI SPM.\r\n\r\nSiri Get Ready! SPM amat sesuai digunakan oleh murid-murid tahap menengah atas ke arah pencapaian SPM yang cemerlang. Berpandukan Standard Kandungan dan Standard Pembelajaran dalam DSKP KSSM, buku teks, serta format Kertas SPM yang baharu, semua latihan ini disusun secara sistematik dan disertakan pelbagai ciri ekstra supaya muri-murid dapat merintis kecemerlangan dalam peperiksaan.\r\n\r\n- Latih Tubi Pentaksiran Formatif dan Sumatif\r\n\r\n- Memenuhi kehendak Peperiksaan\r\n\r\n- Jawapan tepat dan lengkap', 'Hasniza Mohd Salim & Alshaa Rani Ab Wahab', '10.00', '1', 'Pelangi', 'Paper', 20),
+(3, '9789672844521', 'Focus Visual SPM KSSM 2023 Sejarah', 'Focus Visual SPM Sejarah.jpg', 'Siri ini bertujuan untuk menghasilkan pembelajaran berimpak dalam kalangan murid. Penerangan fakta melaui pendekatan infografik dan diagramatik dapat memberikan kesan visual yang bukan sahaja merangsang minat tetapi juga ingatan pembaca.\r\n\r\nCiri-ciri istimewa buku ini:\r\n\r\n- Uji diri\r\n\r\n- Tip SPM\r\n\r\n- Cabaran KBAT\r\n\r\n- Peta i-Think\r\n\r\n- Model 3D', 'Pauline Wong Mee Kiong', '35.00', '1', 'Pelangi', 'Paper', 42),
 (4, '9789670071254', 'Focus Visual SPM KSSM 2023 Fizik', 'Focus Visual SPM Fizik.jpg', 'Siri ini bertujuan untuk menghasilkan pembelajaran berimpak dalam kalangan murid. Penerangan fakta melaui pendekatan infografik dan diagramatik dapat memberikan kesan visual yang bukan sahaja merangsang minat tetapi juga ingatan pembaca.\r\n\r\nCiri-ciri istimewa buku ini:\r\n\r\n- Uji diri\r\n\r\n- Tip SPM\r\n\r\n- Cabaran KBAT\r\n\r\n- Peta i-Think\r\n\r\n- Model 3D', 'Pauline Wong Mee Kiong', '35.00', '1', 'Pelangi', 'Paper', 0),
 (5, '9786297528546', 'Module & More Matematik Tambahan Tingkatan 5', 'Module & More Matematik Tambahan.jpg', 'embelajaran BERPANDU dan SISTEMATIK. Format SPM Terkini\r\n\r\nCiri-ciri Hebat:- \r\n\r\n- Latihan setiap bab untuk ulang kaji\r\n\r\n- Latihan berorientasikan SPM (Kod QR)\r\n\r\n- Tip menjawab soalan Kertas 2\r\n\r\n- Soalan berformatkan i-THINK dan berbentuk aras tinggi.\r\n\r\n- Lembaran PBD (Kod QR)\r\n\r\n- Dwibahasa (Bahasa Melayu dan English)\r\n\r\n- Jawapan Lengkap (Kod QR)\r\n\r\n- Pelangi Online Test (POT) (Kod QR)\r\n\r\nHalaman: 194 halaman', 'Dr. Pauline Wong Mee Kiong', '13.50', '1', 'Pelangi', 'Paper', 19),
-(6, '9786297524512', 'Module and More Fizik Tingkatan 5', 'Module and More Fizik Tingkatan 5.jpg', 'Pembelajaran BERPANDU dan SISTEMATIK. Format SPM Terkini\r\n\r\nCiri-ciri Hebat:- \r\n\r\n- Latihan setiap bab untuk ulang kaji\r\n\r\n- Latihan berorientasikan SPM (Kod QR)\r\n\r\n- Tip menjawab soalan Kertas 2\r\n\r\n- Soalan berformatkan i-THINK dan berbentuk aras tinggi.\r\n\r\n- Lembaran PBD (Kod QR)\r\n\r\n- Dwibahasa (Bahasa Melayu dan English)\r\n\r\n- Video sebagai maklumat tambahan (Kod QR)\r\n\r\n- Jawapan Lengkap (Kod QR)\r\n\r\n- Pelangi Online Test (POT) (Kod QR)\r\n\r\nHalaman: 218 halaman', 'Yeoh Ti Pheng', '13.50', '1', 'Pelangi', 'Paper', 60),
+(6, '9786297524512', 'Module and More Fizik Tingkatan 5', 'Module and More Fizik Tingkatan 5.jpg', 'Pembelajaran BERPANDU dan SISTEMATIK. Format SPM Terkini\r\n\r\nCiri-ciri Hebat:- \r\n\r\n- Latihan setiap bab untuk ulang kaji\r\n\r\n- Latihan berorientasikan SPM (Kod QR)\r\n\r\n- Tip menjawab soalan Kertas 2\r\n\r\n- Soalan berformatkan i-THINK dan berbentuk aras tinggi.\r\n\r\n- Lembaran PBD (Kod QR)\r\n\r\n- Dwibahasa (Bahasa Melayu dan English)\r\n\r\n- Video sebagai maklumat tambahan (Kod QR)\r\n\r\n- Jawapan Lengkap (Kod QR)\r\n\r\n- Pelangi Online Test (POT) (Kod QR)\r\n\r\nHalaman: 218 halaman', 'Yeoh Ti Pheng', '13.50', '1', 'Pelangi', 'Paper', 58),
 (7, '9786297521458', 'Highlights Model Essays SPM 2023', 'Highlights Model Essays.jpg', 'Highlights Model Essays SPM Form 4, Form 5\r\n\r\nNew SPM Assessment Format\r\n\r\nCEFR-Aligned\r\n\r\nThis book is designed to help students improve their writing skills. From the interpretation of the question to the planning and writing process, the reader is guided step by step in two part calls Short Communicative Message, Guide Writing and Extended Writing. Each Model Essay illustrates the process of developing ideas into a essay by putting into practice simple yet invaluable principles of essay writing. Though aimed at SPM Form 4 and Form 5 students, this book is also suitable for anyone who wants write well.\r\n\r\n- Cover three (3) parts of the SPM Writing paper\r\n\r\n- Step-by-step guide for different essay types\r\n\r\n- Word Bank and Idioms for Vocab Enrichment\r\n\r\n- Tips and Techniques for each section\r\n\r\n- Wide Scope of Model Essays\r\n\r\n- Pages : 307 pp', 'Christine Tan, Zeti Aqmar Alpikir, Ch\'ng Teik Peng & Yong Fui Yin', '20.00', '1', 'Pelangi', 'Paper', 24),
 (8, '9789672448956', 'Praktis Hebat PT3 2020 Matematik Tingkatan 3', 'Praktis Hebat PT3 Matematik.jpg', 'Praktis Asas Kecemerlangan! Berdasarkan Format Pentaksiran Tingkatan 3 (PT3).\r\n\r\nSiri Praktis Hebat! PT3 KSSM merupakan siri latihan intensif mengikut topik. Siri ini direka demi melahirkan murid untuk menaakul soalan berdarkan format pentaksiran pusat PT3. Instrumen tambahan seperti soalan KBAT dapat menjanakan prestasi murid ke arah kecemerlangan.\r\n\r\n- Praktis Intensif mengikut topik.\r\n\r\n- Soalan Berorientasikan PT3.\r\n\r\n- Praktis KBAT\r\n\r\n- Jawapan Lengkap\r\n\r\nHalaman: 87 halaman', 'K. W. Chiang, Samantha Neo & Zoway', '6.65', '1', 'Pelangi', 'Paper', 19),
 (9, '9781789091690', 'The Forest of Stars', 'The Forest of Stars.jpg', 'Left all alone after her mother passes away, twelve-year-old Louisa watches the sky for her father. Long ago, a powerful gust of wind stole him away on the wings of his untamed magic-the same magic that stirs within Louisa. As if she is made of hollow bones and too much air, her feet never quite touch the ground.\r\n\r\nBut for all her sky gazing, Louisa finds her fortune on the ground when she spots a ticket to the Carnival Beneath the Stars. If her father fits in nowhere else, maybe she\'ll find him dazzling crowds alongside the other strange feats. Yet after she arrives, a tightrope act ends disastrously-and suspiciously. As fate tugs Louisa closer to the stars, she must decide if she\'s willing to slip into the injured performer\'s role, despite the darkness plucking at the carnival\'s magical threads.', 'Kassner, Heather', '54.90', '2', 'Titan Books', 'Paper', 9),
-(10, '9780356511212', 'The Wheel of Time #13: Towers of Midnight (UK)', 'Towers of Midnight.jpg', 'Soon to be a major Amazon Prime TV series\r\n\r\nThe thirteenth novel in the Wheel of Time series - one of the most influential and popular fantasy epics ever published.\r\n\r\nThe Last Battle has started. The seals on the Dark One\'s prison are crumbling. The Pattern itself is unravelling, and the armies of the Shadow have begun to spill out of the Blight.\r\n\r\nPerrin Aybara is haunted by spectres from his past. To prevail, he must find a way to master the wolf within him or lose himself to it for ever.\r\n\r\nMeanwhile, Matrim Cauthon prepares for the most difficult challenge of his life. The Tower of Ghenjei awaits, and its secrets will reveal the fate of a friend long lost.\r\n\r\nThe end draws near. It\'s time to roll the dice.', 'Jordan, Robert; Sanderson, Brandon', '65.90', '2', 'Orbit', 'Paper', 11),
+(10, '9780356511212', 'The Wheel of Time #13: Towers of Midnight (UK)', 'Towers of Midnight.jpg', 'Soon to be a major Amazon Prime TV series\r\n\r\nThe thirteenth novel in the Wheel of Time series - one of the most influential and popular fantasy epics ever published.\r\n\r\nThe Last Battle has started. The seals on the Dark One\'s prison are crumbling. The Pattern itself is unravelling, and the armies of the Shadow have begun to spill out of the Blight.\r\n\r\nPerrin Aybara is haunted by spectres from his past. To prevail, he must find a way to master the wolf within him or lose himself to it for ever.\r\n\r\nMeanwhile, Matrim Cauthon prepares for the most difficult challenge of his life. The Tower of Ghenjei awaits, and its secrets will reveal the fate of a friend long lost.\r\n\r\nThe end draws near. It\'s time to roll the dice.', 'Jordan, Robert; Sanderson, Brandon', '65.90', '2', 'Orbit', 'Paper', 10),
 (11, '9780356511563', 'The Wheel of Time Prequel: New Spring (UK)', 'New Spring.jpg', 'The prequel novel to the globally bestselling Wheel of Time series - a fantasy phenomenon\r\n\r\nThe city of Canluum lies close to the scarred and desolate wastes of the Blight, a walled haven from the dangers away to the north, and a refuge from the ill works of those who serve the Dark One. Or so it is said. The city that greets Al\'Lan Mandragoran, exiled king of Malkier and the finest swordsman of his generation, is instead one that is rife with rumour and the whisperings of Shadowspawn. Proof, should he have required it, that the Dark One grows powerful once more and that his minions are at work throughout the lands.\r\n\r\nAnd yet it is within Canluum\'s walls that Lan will meet a woman who will shape his destiny. Moiraine is a young and powerful Aes Sedai who has journeyed to the city in search of a bondsman. She requires aid in a desperate quest to prove the truth of a vague and largely discredited prophecy - one that speaks of a means to turn back the shadow, and of a child who may be the dragon reborn.', 'Jordan, Robert', '65.90', '2', 'Orbit', 'Paper\r\n', 14),
 (12, '9780393354512', 'Norse Mythology', 'Norse Mythology.jpg', 'In Norse Mythology, Gaiman stays true to the myths in envisioning the major Norse pantheon: Odin, the highest of the high, wise, daring, and cunning; Thor, Odin\'s son, incredibly strong yet not the wisest of gods; and Loki-son of a giant-blood brother to Odin and a trickster and unsurpassable manipulator.', 'Gaiman, Neil', '59.90', '2', 'Abacus', 'Paper', 0),
 (13, '9789815085001', 'Freedom Embraced', 'Freedom Embraced.jpg', 'As professionals, the workplace is where we spend most of our waking moments. It is where we can actualise our potential, flourish and be happy. Yet, it is also where we are bombarded by stressors such as unrealistic deadlines, office politics, disengagement, ineffective managers and toxic culture. These leave us feeling helpless and trapped - with a sense of freedom lost.\r\n\r\nIn Freedom Embraced, author Bernadette Chua, has written a book specially for the busy professional in mind. It is filled with actionable strategies and mindset shifts to navigate through the various mental, emotional and physical landscapes we encounter in the course of work.', 'Farooki, Roopa\r\n', '79.90', '3', 'Marshall Cavendish International (Asia) Pte Ltd', 'Paper', 29),
@@ -104,10 +133,9 @@ INSERT INTO `cart` (`id`, `uid`, `bid`, `qty`) VALUES
 (23, 19, 1, '1'),
 (29, 30, 1, '1'),
 (31, 23, 5, '1'),
-(32, 1, 3, '1'),
 (33, 31, 1, '1'),
-(37, 1, 1, '5'),
-(40, 32, 2, '1');
+(40, 32, 2, '1'),
+(47, 1, 2, '1');
 
 -- --------------------------------------------------------
 
@@ -185,11 +213,10 @@ CREATE TABLE `orders` (
 --
 
 INSERT INTO `orders` (`order_id`, `uid`, `bid`, `qty`, `paid`, `shipping_detail_id`, `payment_method`, `order_date`, `order_status`, `order_note`) VALUES
-(93, 1, 1, 2, '20', 90, 'American Express', '2023-05-29 18:21:42', 'In Progress', 'this is testing'),
-(99, 31, 5, 3, '40', 0, 'Master Card', '2023-05-25 15:49:01', 'Completed', ''),
-(100, 31, 13, 1, '10', 0, 'American Express', '2023-05-25 15:53:26', 'Completed', ''),
-(101, 31, 12, 1, '20', 91, 'Visa Card', '2023-05-25 15:58:33', 'Cancelled', ''),
-(102, 21, 14, 10, '100', 92, 'Master Card', '2023-05-25 16:01:57', 'Pending', '');
+(109, 1, 2, 2, '20', 109, 'Visa Card', '2023-06-05 12:14:14', 'In Progress', ''),
+(110, 1, 6, 1, '13.5', 110, 'Visa Card', '2023-06-05 12:32:22', 'In Progress', 'testing22'),
+(111, 1, 6, 1, '13.5', 111, 'Master Card', '2023-06-05 12:33:22', 'In Progress', 'testing 3'),
+(112, 1, 10, 1, '65.9', 111, 'Master Card', '2023-06-05 12:46:20', 'Pending', 'testing 3');
 
 -- --------------------------------------------------------
 
@@ -217,7 +244,8 @@ INSERT INTO `review` (`id`, `user_id`, `book_id`, `review_name`, `review_email`,
 (22, 31, 14, 'tan', 'tan@gmail.com', '5', 'Good!!!', 'love it!!!', '2023-05-26 10:47:16'),
 (23, 31, 4, 'tan', 'tan@gmail.com', '5', 'Good !!!', 'thank you!!', '2023-05-26 10:47:16'),
 (24, 31, 1, 'tan', 'tan@gmail.com', '3', 'Good!!!', 'love it!!!', '2023-05-26 10:47:16'),
-(25, 33, 1, 'yy', 'yy@gmail.com', '4', 'qqwa', 'sasd', '2023-05-28 01:51:18');
+(25, 33, 1, 'yy', 'yy@gmail.com', '4', 'qqwa', 'sasd', '2023-05-28 01:51:18'),
+(26, 1, 2, 'wsy', '16a8ltmco7@drowblock.com', '4', 'Nice', 'nice content\r\n', '2023-06-05 10:42:10');
 
 -- --------------------------------------------------------
 
@@ -227,7 +255,6 @@ INSERT INTO `review` (`id`, `user_id`, `book_id`, `review_name`, `review_email`,
 
 CREATE TABLE `shipping_detail` (
   `id` int(255) NOT NULL,
-  `oid` int(25) NOT NULL,
   `name` varchar(255) NOT NULL,
   `telephone` varchar(255) NOT NULL,
   `address` varchar(255) NOT NULL,
@@ -241,12 +268,10 @@ CREATE TABLE `shipping_detail` (
 -- Dumping data for table `shipping_detail`
 --
 
-INSERT INTO `shipping_detail` (`id`, `oid`, `name`, `telephone`, `address`, `city`, `state`, `postcode`, `country`) VALUES
-(83, 93, 'wsy', '12345678', '7 G/F Jalan PJS 10/24 Taman Sri Subang', 'Petaling Jaya', 'Pahang', 41200, 'Malaysia'),
-(89, 99, 'wanto', '01121213', '10, jalan nusa bestari 2 14/2', 'Johor bahru', 'Selangor', 69999, 'Malaysia'),
-(90, 100, 'tesy', '01121213', '10, jalan nusa bestari 2 14/2', 'Johor bahru', 'Johor', 41200, 'Malaysia'),
-(91, 101, 'tesy', '12345678', '7, jalan bakti, taman bakti', 'Johor bahru', 'Johor', 41200, 'Malaysia'),
-(92, 102, 'wanto', '12345678', '11, Jln Pjs 11/1, Taman Bandar Sunway Petaling Jaya', 'Petaling Jaya', 'Selangor', 46150, 'Malaysia');
+INSERT INTO `shipping_detail` (`id`, `name`, `telephone`, `address`, `city`, `state`, `postcode`, `country`) VALUES
+(109, 'wsy', '01212345678', 'Multimedia University, Persiaran Multimedia', 'Cyberjaya', 'Selangor', 63100, 'Malaysia'),
+(110, 'wsy', '01212345678', 'Multimedia University, Persiaran Multimedia', 'Cyberjaya', 'Selangor', 63100, 'Malaysia'),
+(111, 'wsy', '01212345678', 'Multimedia University, Persiaran Multimedia', 'Cyberjaya', 'Selangor', 63100, 'Malaysia');
 
 -- --------------------------------------------------------
 
@@ -258,6 +283,7 @@ CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(128) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `phone` varchar(25) NOT NULL,
   `password_hash` varchar(255) NOT NULL,
   `verify_token` varchar(255) NOT NULL,
   `verify_status` int(11) NOT NULL,
@@ -273,11 +299,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `email`, `password_hash`, `verify_token`, `verify_status`, `ship_address`, `city`, `states`, `postal`, `country`, `otpcode`) VALUES
-(1, 'wsy', 'test1@gmail.com', '$2y$10$1EEHn3sHPr1qkuMuCF5.zOH/cdUKhWZOSYNSKy2Uzyh.q3tbNv2Gi', '', 0, 'Multimedia University, Persiaran Multimedia', 'Cyberjaya', 'Selangor', '63100', 'Malaysia', ''),
-(21, 'wanto', '123@gmail.com', '$2y$10$6aGQkf4bNBvXlNw0SCmnTeqGvN3OP5v882xBzRldFSnQF7gcZQG3.', '', 0, '10, jalan nusa bestari 2 14/2', 'Johor bahru', 'Johor', '80050', 'Malaysia', ''),
-(31, 'tw', 'wsiongyee@gmail.com', '$2y$10$05AoUlCMLx1.GyE0j5Z8Bu6GGfhIbwZQXqKOfmNAAVKeXUq7aXOYi', '2b92551d3c4fd7e675a5311c5a71e302', 1, '7 G/F Jalan PJS 10/24 Taman Sri Subang', 'Petaling Jaya', 'Selangor', '46000', 'Malaysia', '81074'),
-(33, 'test2', 'kucuno@tutuapp.bid', '$2y$10$cDFamyvZoWTTUn0wnm1r3ue1wsSk2ngRmaFtTc90mbF4ezSaAs2yy', '', 0, '', '', '', '', '', '92492');
+INSERT INTO `users` (`id`, `username`, `email`, `phone`, `password_hash`, `verify_token`, `verify_status`, `ship_address`, `city`, `states`, `postal`, `country`, `otpcode`) VALUES
+(1, 'wsy', '16a8ltmco7@drowblock.com', '01212345678', '$2y$10$1EEHn3sHPr1qkuMuCF5.zOH/cdUKhWZOSYNSKy2Uzyh.q3tbNv2Gi', '', 1, 'Multimedia University, Persiaran Multimedia', 'Cyberjaya', 'Selangor', '63100', 'Malaysia', '57622'),
+(21, 'wanto', '123@gmail.com', '', '$2y$10$6aGQkf4bNBvXlNw0SCmnTeqGvN3OP5v882xBzRldFSnQF7gcZQG3.', '', 0, '10, jalan nusa bestari 2 14/2', 'Johor bahru', 'Johor', '80050', 'Malaysia', ''),
+(31, 'tw', 'wsiongyee@gmail.com', '', '$2y$10$05AoUlCMLx1.GyE0j5Z8Bu6GGfhIbwZQXqKOfmNAAVKeXUq7aXOYi', '2b92551d3c4fd7e675a5311c5a71e302', 1, '7 G/F Jalan PJS 10/24 Taman Sri Subang', 'Petaling Jaya', 'Selangor', '46000', 'Malaysia', '81074'),
+(33, 'test2', 'cufefuje@gotgel.org\r\n', '', '$2y$10$cDFamyvZoWTTUn0wnm1r3ue1wsSk2ngRmaFtTc90mbF4ezSaAs2yy', '', 0, '', '', '', '', '', '71745');
 
 -- --------------------------------------------------------
 
@@ -297,7 +323,6 @@ CREATE TABLE `wishlist` (
 --
 
 INSERT INTO `wishlist` (`id`, `uid`, `pid`, `timestamp`) VALUES
-(9, 1, 3, '2023-04-07'),
 (11, 19, 3, '2023-04-09'),
 (12, 0, 1, '2023-04-11'),
 (13, 20, 1, '2023-04-15'),
@@ -305,12 +330,18 @@ INSERT INTO `wishlist` (`id`, `uid`, `pid`, `timestamp`) VALUES
 (15, 30, 1, '2023-04-28'),
 (17, 23, 6, '2023-05-09'),
 (18, 23, 5, '2023-05-09'),
-(19, 1, 6, '2023-05-26'),
-(22, 32, 1, '2023-05-30');
+(22, 32, 1, '2023-05-30'),
+(23, 1, 7, '2023-06-05');
 
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `admin`
+--
+ALTER TABLE `admin`
+  ADD PRIMARY KEY (`admin_id`);
 
 --
 -- Indexes for table `books`
@@ -372,6 +403,12 @@ ALTER TABLE `wishlist`
 --
 
 --
+-- AUTO_INCREMENT for table `admin`
+--
+ALTER TABLE `admin`
+  MODIFY `admin_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+
+--
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
@@ -381,7 +418,7 @@ ALTER TABLE `books`
 -- AUTO_INCREMENT for table `cart`
 --
 ALTER TABLE `cart`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=48;
 
 --
 -- AUTO_INCREMENT for table `category`
@@ -399,19 +436,19 @@ ALTER TABLE `contactus`
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=105;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=113;
 
 --
 -- AUTO_INCREMENT for table `review`
 --
 ALTER TABLE `review`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
 
 --
 -- AUTO_INCREMENT for table `shipping_detail`
 --
 ALTER TABLE `shipping_detail`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=94;
+  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=112;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -423,7 +460,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `wishlist`
 --
 ALTER TABLE `wishlist`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
